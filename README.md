@@ -1,0 +1,2 @@
+# DNA-k-mers-OpenMP
+ 
