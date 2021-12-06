@@ -1,10 +1,10 @@
-#include "KmerGenerator.h"
+#include "KGen.h"
 #include <list>
 #include <stdio.h>
 #include <omp.h>
 using namespace std;
 
-class KmerGenerator{
+class KGen{
     private:
         string dna;
         int k;
@@ -12,7 +12,7 @@ class KmerGenerator{
         final int numThreads=  4;
 
     public:
-        KmerGenerator::KmerGenerator::KmerGenerator( dna, int k){
+        KGen::KGen( dna, int k){
             this.dna = dna;
             this.k = k;
         }
