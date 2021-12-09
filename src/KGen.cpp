@@ -1,4 +1,4 @@
-#include "KGen.h"
+#include "../include/KGen.h"
 #include <iostream>
 #include <list>
 #include <stdio.h>

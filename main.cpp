@@ -1,6 +1,6 @@
-#include "KGen.cpp"
-#include "KGenSerial.cpp"
-#include "FastaReader.cpp"
+#include "src/KGen.cpp"
+#include "src/KGenSerial.cpp"
+#include "src/FastaReader.cpp"
 #include <stdio.h>
 #include <iostream>
 using namespace std;

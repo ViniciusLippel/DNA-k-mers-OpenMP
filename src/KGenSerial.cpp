@@ -1,4 +1,4 @@
-#include "KGenSerial.h"
+#include "../include/KGenSerial.h"
 #include <iostream>
 #include <list>
 #include <stdio.h>

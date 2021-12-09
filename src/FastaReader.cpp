@@ -1,4 +1,4 @@
-#include "FastaReader.h"
+#include "../include/FastaReader.h"
 #include <string>
 #include <iostream>
 #include <fstream>
