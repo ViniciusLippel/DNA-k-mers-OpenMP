@@ -13,6 +13,7 @@ class KGen{
         KGen(std::string dna, int k);
         void start();
         void generate(int begin, int end);
+        void printK_mers();
 
         std::list <string> getK_mers() { return k_mers; }
 };

@@ -1,4 +1,5 @@
 #include "KGen.h"
+#include <iostream>
 #include <list>
 #include <stdio.h>
 #include <omp.h>
@@ -34,5 +35,12 @@ void KGen::start(){
 void KGen::generate(int begin, int end){
     for(int i=begin; i<=end; i++){
         k_mers.push_back(dna.substr(i, k));
+    }
+}
+
+void KGen::printK_mers(){
+     printf("\nk-mers: ");
+    for(auto const &i: k_mers){
+        std::cout << i << " ";
     }
 }
