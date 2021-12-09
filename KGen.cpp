@@ -4,43 +4,35 @@
 #include <omp.h>
 using namespace std;
 
-class KGen{
-    private:
-        string dna;
-        int k;
-        list <string> k_mers;
-        final int numThreads=  4;
+KGen::KGen(string dna_str, int k_num)
+{
+    dna = dna_str;
+    k = k_num;
+}
 
-    public:
-        KGen::KGen( dna, int k){
-            this.dna = dna;
-            this.k = k;
+void KGen::start(){
+    int indexDif = dna.length()/numThreads;
+
+    printf("DNA length: %d", dna.length());
+
+    #pragma omp parallel num_threads(numThreads)
+    {
+        int tNum = omp_get_thread_num();
+        
+        int begin = indexDif*tNum;
+        int end = indexDif*(tNum+1)-1;
+
+        if(tNum != numThreads-1){
+            generate(begin, end);
         }
-
-        KmerGenerator::start(){
-            int indexDif = this.dna.length()/this.numThreads;
-
-            printf("DNA length: %d", indexDif)
-
-            #pragma omp parallel num_threads(this.numThreads)
-            {
-                int tNum = omp_get_thread_num();
-                
-                int begin = indexDif*tNum;
-                int end = indexDif*(tNum+1)-1
-
-                if(tNum != numThreads-1){
-                    generate(begin, end);
-                }
-                else {
-                    generate(begin, dna.length()-k)
-                }
-            } 
+        else {
+            generate(begin, dna.length()-k);
         }
+    } 
+}
 
-        KmerGenerator::generate(int begin, int end){
-            for(int i=begin; i<=end; i++){
-                k_mers.push_back(dna.substr(i, k))
-            }
-        }
+void KGen::generate(int begin, int end){
+    for(int i=begin; i<=end; i++){
+        k_mers.push_back(dna.substr(i, k));
+    }
 }

@@ -3,14 +3,16 @@
 #include <string>
 using namespace std;
 
-class KmerGenerator{
+class KGen{
     private:
         std::string dna;
         int k;
         std::list <string> k_mers;
-        const int numThreads;
+        const int numThreads = 4;
     public:
-        KmerGenerator(std::string dna, int k);
+        KGen(std::string dna, int k);
         void start();
-        void generate();
+        void generate(int begin, int end);
+
+        std::list <string> getK_mers() { return k_mers; }
 };
