@@ -11,6 +11,7 @@ class KGenSerial{
     public:
         KGenSerial(std::string dna, int k);
         void start();
+        void printK_mers();
 
         std::list <string> getK_mers() { return k_mers; }
 };
